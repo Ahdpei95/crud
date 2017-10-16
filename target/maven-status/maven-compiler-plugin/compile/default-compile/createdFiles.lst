@@ -1,0 +1,6 @@
+com\Crud\CrudController\service\BookService.class
+com\Crud\CrudController\service\BookServiceImpl.class
+com\Crud\CrudController\dao\BookDaoImpl.class
+com\Crud\CrudController\model\Book.class
+com\Crud\CrudController\dao\BookDao.class
+com\Crud\CrudController\controller\BooksController.class
