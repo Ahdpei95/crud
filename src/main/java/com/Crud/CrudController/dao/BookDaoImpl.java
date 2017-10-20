@@ -1,6 +1,7 @@
 package com.Crud.CrudController.dao;
 
 import com.Crud.CrudController.model.Book;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -32,28 +33,50 @@ public class BookDaoImpl implements BookDao {
     @Override
     public void removeBook(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Book book = session.load(Book.class, new Integer(id));
+        Book book = session.load(Book.class, id);
         if (book != null) {
             session.delete(book);
         }
     }
+
     @Override
     public Book getBookById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.load(Book.class, new Integer(id));
+        return session.load(Book.class, id);
     }
     @Override
     @SuppressWarnings("unchecked")
-    public List<Book> listBooks() {
-        /*Session session = sessionFactory.getCurrentSession();
+    public List<Book> listBooks(int first, int max) {
+        Session session = sessionFactory.getCurrentSession();
         Query bookList = session.createQuery("FROM Book");
-        List<Book> books = bookList.list();
-        *//*for (Book book :
-                books) {
-            System.out.println(book.getId());
-        }*//*
-        return books;*/
-     return sessionFactory.getCurrentSession().createNativeQuery("SELECT * FROM book").addEntity(Book.class).list();
+        bookList.setFirstResult(first * max);
+        bookList.setMaxResults(max);
+        return bookList.list();
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+        Session session = sessionFactory.getCurrentSession();
+        Query bookList = session.createQuery("FROM Book");
+        return bookList.list();
+    }
+
+    @Override
+    public List<Book> searchAllTitles(String title) {
+        String newParam = "%" + title + "%";
+        Session session = sessionFactory.getCurrentSession();
+        Query bookList = session.createQuery("FROM Book WHERE title like '" + newParam +"'");
+        return bookList.list();
+    }
+
+    @Override
+    public List<Book> searchTitles(String title, int first, int max) {
+        String newParam = "%" + title + "%";
+        Session session = sessionFactory.getCurrentSession();
+        Query bookList = session.createQuery("FROM Book WHERE title like '"+ newParam + "'");
+        bookList.setFirstResult(first * max);
+        bookList.setMaxResults(max);
+        return bookList.list();
     }
 
 }

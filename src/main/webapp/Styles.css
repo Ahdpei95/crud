@@ -1,0 +1,99 @@
+/*Стили для таблиц*/
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+hi {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+th, td:first-child {
+    background: #AFCDE7;
+    color: white;
+    padding: 10px 20px;
+}
+th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+}
+td {
+    background: #D8E6F3;
+}
+th:first-child, td:first-child {
+    text-align: left;
+}
+
+/*Стили дня кнопок "ADD" и "Update"*/
+.actionButton {
+    border-radius: 4px;
+    background-color: #4169E1;
+    border: none;
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 14px;
+    padding: 10px 15px 15px 10px;
+    margin-left: 85px;
+}
+
+/*Стили для кнопок в таблице*/
+
+.actionOnTable {
+    border-radius: 4px;
+    border: none;
+    background-color: #4169E1;
+    text-align: left;
+    font-size: 14px;
+    padding: 5px;
+}
+/*Стили пейджинга*/
+.page {
+    background-color: #4169E1;
+    margin: 10px 0 10px 16px;
+    font-size: 20px;
+    text-align: left;
+    padding: 5px;
+    border: none;
+    border-radius: 4px
+}
+
+/*Панель поиска*/
+.white {
+    background-color: white;
+}
+
+.addOrEdit {
+    position: absolute;
+    right: 15px;
+    top: 0;
+}
+
+input[type = text] {
+    border-bottom-color: #4169E1;
+    color: #000000;
+}
+
+.find {
+    float: left;
+    margin-left: -100px;
+}
+
+.find .actionButton {
+    color: #FFFFFF;
+}
+
+.find td:first-child {
+    background-color: #FFFFFF;
+}
+
+a {
+    text-decoration: none;
+    user-select: none;
+    background: #4169E1;
+    padding: .7em 1.5em;
+    border-radius: 3px;
+    color: #FFFFFF;
+    margin-left: 20px
+}
